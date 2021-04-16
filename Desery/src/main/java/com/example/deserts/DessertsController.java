@@ -3,14 +3,21 @@ package com.example.deserts;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
+@Api
 @CrossOrigin
 @RestController
 public class DessertsController {
-    
+//    @Autowired
+//    DesertsRepository desertsRepository;
+
 //    @GetMapping("/api/desery")
 //    public List<String> getDesserts() {
 //        ArrayList<String> desserts=new ArrayList<>();
@@ -18,9 +25,13 @@ public class DessertsController {
 //        return desserts;
 //    }
 
+//    @Autowired
+//    OrderRepository orderRepository;
+
     @GetMapping("/api/desery")
+  //  @ApiOperation(value="zwraca liste deserow", response = DesertEntity.class)
     public List<DesertEntity> getDesserts() {
-        ArrayList<DesertEntity> desserts=new ArrayList<>();
+        ArrayList<DesertEntity> desserts = new ArrayList<>();
         DesertEntity d1 = new DesertEntity();
 
         d1.id = 0L;
@@ -43,5 +54,15 @@ public class DessertsController {
 
         System.out.println("Returned the list");
         return desserts;
+        //return desertsRepository.findAll();
     }
+
+//    @PostMapping("/api/zamowienie")
+//    @ApiOperation(value="zapisuje zamowenie", response = OrderEntity.class)
+//    public OrderEntity addNewOrder(@ApiParam(value="Tresc zamowienia", required = true)
+//                                       @Valid @RequestBody OrderEntity order){
+//        OrderEntity savedOrder = orderRepository.save(order);
+//        return savedOrder;
+//    }
+
 }
