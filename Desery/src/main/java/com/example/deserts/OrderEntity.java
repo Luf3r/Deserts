@@ -11,15 +11,15 @@ public class OrderEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    public Long id;
 
     @NotNull
-    String name;
+    public String name;
 
-    String phone;
+    public String phone;
 
-    String notes;
+    public String notes;
 
     @NotNull
-    Integer deliveryMethod;
+    public Integer deliveryMethod;
 }
