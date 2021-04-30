@@ -14,6 +14,9 @@ public class OrderEntity {
     public Long id;
 
     @NotNull
+    public String desertName;
+
+    @NotNull
     public String name;
 
     public String phone;
